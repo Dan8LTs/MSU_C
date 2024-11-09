@@ -8,7 +8,6 @@
     <ClCompile Include="..\MSU_C\Seminar1.c" />
     <ClCompile Include="..\MSU_C\Test.c" />
     <ClCompile Include="..\MSU_C\Program6.c" />
-    <ClCompile Include="..\MSU_C\Program5.c" />
     <ClCompile Include="..\..\..\..\Загрузки\Functions5.c">
       <Filter>Program 5</Filter>
     </ClCompile>
