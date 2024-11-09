@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Загрузки\Functions5.c" />
+    <ClCompile Include="..\..\..\..\Загрузки\Program5.c" />
     <ClCompile Include="..\MSU_C\Lection1.c" />
     <ClCompile Include="..\MSU_C\Program4.c" />
     <ClCompile Include="..\MSU_C\Program6.c" />
@@ -135,6 +137,9 @@
     <ClCompile Include="..\MSU_C\Program7.c" />
     <ClCompile Include="..\MSU_C\Seminar1.c" />
     <ClCompile Include="..\MSU_C\Test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MSU_C\Functions5.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

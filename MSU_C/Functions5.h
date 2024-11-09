@@ -1,0 +1,1 @@
+int Process(int*, int);
