@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Загрузки\Program4(no array).c" />
     <ClCompile Include="..\MSU_C\Lection1.c" />
     <ClCompile Include="..\MSU_C\NewProgramSort.c" />
+    <ClCompile Include="..\MSU_C\Program4(no array).c" />
     <ClCompile Include="..\MSU_C\Program4.c" />
     <ClCompile Include="..\MSU_C\Program5.c" />
     <ClCompile Include="..\MSU_C\Program6.c" />

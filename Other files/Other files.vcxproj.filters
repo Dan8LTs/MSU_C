@@ -10,6 +10,6 @@
     <ClCompile Include="..\MSU_C\Program5.c" />
     <ClCompile Include="..\MSU_C\Program6.c" />
     <ClCompile Include="..\MSU_C\Seminar1.c" />
-    <ClCompile Include="..\..\..\..\Загрузки\Program4(no array).c" />
+    <ClCompile Include="..\MSU_C\Program4(no array).c" />
   </ItemGroup>
 </Project>
