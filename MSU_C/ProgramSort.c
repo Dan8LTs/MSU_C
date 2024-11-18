@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
+void tests();
 int checkIntOrder(int arr[], int n);
 int checkDoubleOrder(double arr[], int n);
 int* generateIntArray(int n);
@@ -19,6 +20,8 @@ void writeDoublesToFile(const char* filename, double* array, size_t size);
 // Author: 112-Maskin-Danil
 // Program for sorting algorithms.
 int main() {
+	tests();
+
 	clock_t s1, s2, e1, e2;
 	int n = 15;
 	int* arr1 = generateIntArray(n);
@@ -53,6 +56,32 @@ int main() {
 	writeDoublesToFile("output.txt", arr3, n);
 
 	return 0;
+}
+
+// Author: 112-Maskin-Danil
+// This function was created for testing program.
+void tests() {
+	clock_t s1, s2, e1, e2;
+	int n = 10000;
+	double* arr1 = generateDoubleArray(n);
+	double* arr2 = generateDoubleArray(n);
+
+	printf("Tests\n");
+	printf("%d elements\n", n);
+
+	s1 = clock();
+	siftingDoubleSort(arr1, n);
+	e1 = clock();
+	printf("Algorithm - sifting double sort: \n");
+	printf("Is sorted: %d\n", checkDoubleOrder(arr1, n));
+	printf("Execution time: %lf milliseconds\n\n", (double)(e1 - s1) / CLOCKS_PER_SEC);
+
+	s2 = clock();
+	bubbleDoubleSort(arr2, n);
+	e2 = clock();
+	printf("Algorithm - bubble double sort: \n");
+	printf("Is sorted: %d\n", checkDoubleOrder(arr2, n));
+	printf("Execution time: %lf milliseconds\n\n", (double)(e2 - s2) / CLOCKS_PER_SEC);
 }
 
 // Author: 112-Maskin-Danil

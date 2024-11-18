@@ -19,17 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Functions5.h" />
-    <ClInclude Include="ProgramSort.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ProgramSort.c" />
+    <ClCompile Include="..\MSU_C\Lection1.c" />
+    <ClCompile Include="..\MSU_C\NewProgramSort.c" />
+    <ClCompile Include="..\MSU_C\Program4.c" />
+    <ClCompile Include="..\MSU_C\Program5.c" />
+    <ClCompile Include="..\MSU_C\Program6.c" />
+    <ClCompile Include="..\MSU_C\Program7.c" />
+    <ClCompile Include="..\MSU_C\ProgramMinmax.c" />
+    <ClCompile Include="..\MSU_C\Seminar1.c" />
+    <ClCompile Include="..\MSU_C\Test.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{adb861df-ce28-4378-be12-05d3acbfa50e}</ProjectGuid>
-    <RootNamespace>MSUC</RootNamespace>
+    <ProjectGuid>{41f4c4d6-d96a-42a0-9e9a-29b628de532e}</ProjectGuid>
+    <RootNamespace>Otherfiles</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -1,0 +1,12 @@
+int checkIntOrder(int arr[], int n);
+int checkDoubleOrder(double arr[], int n);
+int* generateIntArray(int n);
+double* generateDoubleArray(int n);
+void bubbleIntSort(int arr[], int n);
+void bubbleDoubleSort(double arr[], int n);
+void siftingIntSort(int arr[], int n);
+void siftingDoubleSort(double arr[], int n);
+void printIntArray(int arr[], int n);
+void printDoubleArray(double arr[], int n);
+double* readDoublesFromFile(int n);
+void writeDoublesToFile(const char* filename, double* array, size_t size);
