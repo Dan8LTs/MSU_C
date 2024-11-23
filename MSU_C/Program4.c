@@ -9,7 +9,7 @@ void Process2(double*, int, double*);
 // Author: 112-Maskin-Danil. 
 // This program solves tasks 5 and 23. You can choose mode. 
 // In both modes, the program reads data from a file and outputs the result. 
-int main() {
+int main(void) {
 	int mode = 0, i = 0, res1;
 	double el, res2, x, data[N];
 	char filename[100];
@@ -17,7 +17,7 @@ int main() {
 	printf("This program solves tasks 5 and 23. Author: 112-Maskin-Danil. \n");
 	printf("Select mode 5 or 23: ");
 
-	if (scanf_s("%d", &mode) != 1) {
+	if (scanf("%d", &mode) != 1) {
 		fprintf(stderr, "wrong format");
 		return -1;
 	}
@@ -28,7 +28,7 @@ int main() {
 	filename[strcspn(filename, "\n")] = '\0';
 	FILE* f = fopen(filename, "r");
 	if (f) {
-		for (i = 0; fscanf_s(f, "%lf", &el) == 1; ++i)
+		for (i = 0; fscanf(f, "%lf", &el) == 1; ++i)
 		{
 			if (i < N) data[i] = el;
 		}
@@ -49,7 +49,7 @@ int main() {
 	if (mode == 5) {
 		printf("This program finds the number X in the sequence of numbers from %s\n", filename);
 		printf("Enter X: ");
-		if (scanf_s("%lf", &x) != 1) {
+		if (scanf("%lf", &x) != 1) {
 			fprintf(stderr, "wrong format");
 			return -1;
 		}

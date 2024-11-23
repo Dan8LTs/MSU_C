@@ -7,17 +7,17 @@ void PrintBinary(int n);
 // Author: 112-Maskin-Danil.
 // Solution of problem 1.
 // This program writes 0 and 1 to the specified bit of the given integer.
-int main() {
+int main(void) {
 	int n, bit;
 	printf("Author: 112-Maskin-Danil.\n");
 	printf("This program writes 0 and 1 to the specified bit of the given integer.\n");
 	printf("Enter number: ");
-	if (scanf_s("%d", &n) != 1) {
+	if (scanf("%d", &n) != 1) {
 		fprintf(stderr, "wrong format");
 		return -1;
 	}
 	printf("Enter bit: ");
-	if (scanf_s("%d", &bit) != 1) {
+	if (scanf("%d", &bit) != 1) {
 		fprintf(stderr, "wrong format");
 		return -1;
 	}

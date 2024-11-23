@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #define N 1000
 
 int Process(int*, int);
@@ -6,9 +7,10 @@ int Process(int*, int);
 // Author: 112-Maskin-Danil. 
 // This program solves task 1.
 // The program reads data from a file and outputs the result. 
-int main() {
+int main(void) {
 	int i = 0, data[N], el;
 	char filename[100];
+	FILE* f;
 
 	printf("This program solves task 1. Author: 112-Maskin-Danil. \n");
 	printf("It returns yes if the array elements from file are symmetrical, else - no.\n");
@@ -16,9 +18,9 @@ int main() {
 	printf("Enter file name: ");
 	fgets(filename, sizeof(filename), stdin);
 	filename[strcspn(filename, "\n")] = '\0';
-	FILE* f = fopen(filename, "r");
+	f = fopen(filename, "r");
 	if (f) {
-		for (i = 0; fscanf_s(f, "%d", &el) == 1; ++i)
+		for (i = 0; fscanf(f, "%d", &el) == 1; ++i)
 		{
 			if (i < N) data[i] = el;
 		}

@@ -18,12 +18,9 @@
     <ClInclude Include="Functions5.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ProgramSort.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ProgramSort.c">
+    <ClCompile Include="NewProgramSort.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

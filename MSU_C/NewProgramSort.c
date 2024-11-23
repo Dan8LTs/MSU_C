@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 void bubbleIntSort(int arr[], int n);
 int* generateIntArray(int n);
@@ -11,7 +11,7 @@ int cmp(int a, int b);
 // Author: 112-Maskin-Danil
 // This program sorts generated numbers by the number of ones in binary notation. 
 // It outputs the number, its binary representation, and the number of ones.
-int main() {
+int main(void) {
 	int n = 15;
 	int* arr = generateIntArray(n);
 	int onecount;
@@ -52,7 +52,7 @@ int* generateIntArray(int n) {
 
 	srand(time(NULL));
 	for (i = 0; i < n; i++) {
-		res[i] = rand();
+		res[i] = rand() - 10000;
 	}
 	return res;
 }

@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
-void tests();
+void tests(void);
 int checkIntOrder(int arr[], int n);
 int checkDoubleOrder(double arr[], int n);
 int* generateIntArray(int n);
@@ -13,20 +14,20 @@ void siftingIntSort(int arr[], int n);
 void siftingDoubleSort(double arr[], int n);
 void printIntArray(int arr[], int n);
 void printDoubleArray(double arr[], int n);
-double* readDoublesFromFile(int n);
+int readDoublesFromFile(double* array, int n);
 void writeDoublesToFile(const char* filename, double* array, size_t size);
 
 
 // Author: 112-Maskin-Danil
 // Program for sorting algorithms.
-int main() {
-	tests();
-
+int main(void) {
 	clock_t s1, s2, e1, e2;
 	int n = 15;
 	int* arr1 = generateIntArray(n);
 	double* arr2 = generateDoubleArray(n);
-	double* arr3;
+	double* arr3 = malloc(n * sizeof(double));
+
+	//tests();
 
 	printf("Author: 112-Maskin-Danil\n");
 	printf("Program for sorting algorithms.\n");
@@ -51,9 +52,15 @@ int main() {
 	printf("Is sorted: %d\n", checkDoubleOrder(arr2, n));
 	printf("Execution time: %lf seconds\n\n", (double)(e2 - s2) / CLOCKS_PER_SEC);
 
-	arr3 = readDoublesFromFile(n);
-	bubbleDoubleSort(arr3, n);
-	writeDoublesToFile("output.txt", arr3, n);
+	if (readDoublesFromFile(arr3, n) == 0) {
+		printf("Source double array: \n");
+		printDoubleArray(arr3, n);
+		bubbleDoubleSort(arr3, n);
+		printf("Sorted double array: \n");
+		printDoubleArray(arr3, n);
+		printf("Is sorted: %d\n", checkDoubleOrder(arr3, n));
+		writeDoublesToFile("output.txt", arr3, n);
+	}
 
 	return 0;
 }
@@ -132,7 +139,7 @@ double* generateDoubleArray(int n) {
 	double* res = (double*)malloc(n * sizeof(double));
 
 	for (i = 0; i < n; i++) {
-		res[i] = ((double)rand() / RAND_MAX) * 2.0 - 1.0;
+		res[i] = (rand() * 1.0 / RAND_MAX) * 2.0 - 1.0;
 	}
 	return res;
 }
@@ -225,20 +232,19 @@ void printDoubleArray(double arr[], int n) {
 // Author: 112-Maskin-Danil
 // Reads doubles from file. 
 // Returns array of doubles length n.
-double* readDoublesFromFile(int n)
+int readDoublesFromFile(double* array, int n)
 {
 	char filename[100];
-	double* array;
 	double el;
 	int i;
+	FILE* f;
 
 	printf("Enter file name: ");
 	fgets(filename, sizeof(filename), stdin);
 	filename[strcspn(filename, "\n")] = '\0';
-	FILE* f = fopen(filename, "r");
+	f = fopen(filename, "r");
 	if (f) {
-		array = malloc(n * sizeof(double));
-		for (i = 0; fscanf_s(f, "%lf", &el) == 1; i++)
+		for (i = 0; fscanf(f, "%lf", &el) == 1; i++)
 		{
 			if (i < n) array[i] = el;
 		}
@@ -255,7 +261,7 @@ double* readDoublesFromFile(int n)
 		fprintf(stderr, "file \"%s\" is not found", filename);
 		return -1;
 	}
-	return array;
+	return 0;
 }
 
 // Author: 112-Maskin-Danil

@@ -7,13 +7,14 @@ int Process2(FILE*, double*);
 
 // This program solves tasks 5 and 23. You can choose mode. 
 // In both modes, the program reads data from a file and outputs the result. Author: 112-Maskin-Danil. 
-int main() {
+int main(void) {
 	int mode = 0;
 	int retcode;
+	FILE* f;
 
 	printf("This program solves tasks 5 and 23. Author: 112-Maskin-Danil. \n");
 	printf("Select mode 5 or 23: \n");
-	if (scanf_s("%d", &mode) != 1) {
+	if (scanf("%d", &mode) != 1) {
 		fprintf(stderr, "wrong format");
 		return -1;
 	}
@@ -26,10 +27,10 @@ int main() {
 		int res1 = 0;
 		double x;
 		printf("This program finds the number X in the sequence of numbers from input5.txt\n");
-		FILE* f = fopen("input5.txt", "r");
+		f = fopen("input5.txt", "r");
 		if (f) {
 			printf("Enter X: ");
-			if (scanf_s("%lf", &x) != 1) {
+			if (scanf("%lf", &x) != 1) {
 				fprintf(stderr, "wrong format");
 				return -1;
 			}
@@ -50,7 +51,7 @@ int main() {
 	else if (mode == 23) {
 		double res2;
 		printf("This program finds the largest sum of an increasing portion of a sequence from input23.txt\n");
-		FILE* f = fopen("input23.txt", "r");
+		f = fopen("input23.txt", "r");
 		if (f) {
 			retcode = Process2(f, &res2);
 			if (retcode < 0) {
@@ -79,7 +80,7 @@ double abs(double v) {
 int Process1(FILE* f, double x, int* res1) {
 	double n;
 	int retcode = -1;
-	while (fscanf_s(f, "%lf", &n) == 1) {
+	while (fscanf(f, "%lf", &n) == 1) {
 		retcode = 0;
 		if (abs(x - n) < eps) {
 			*res1 = 1;
@@ -96,12 +97,13 @@ int Process2(FILE* f, double* res2) {
 	double a, b, s, max_s;
 	max_s = 0;
 	int retcode = -1;
-	if (fscanf_s(f, "%lf", &a) == 1) {
+
+	if (fscanf(f, "%lf", &a) == 1) {
 		s = a;
 		retcode = 0;
 	}
 
-	while (fscanf_s(f, "%lf", &b) == 1) {
+	while (fscanf(f, "%lf", &b) == 1) {
 		if (b > a) {
 			s += b;
 		}

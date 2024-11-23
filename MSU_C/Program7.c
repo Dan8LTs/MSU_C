@@ -1,4 +1,43 @@
 #include <stdio.h>
+#include <string.h>
+
+void generateSubsets(int N, int k, FILE* file);
+
+// Author: 112-Maskin-Danil
+// This program outputs to a file and to the console all k-element subsets of the set of numbers from 1 to n.
+int main() {
+	int N, k;
+	char filename[100];
+	FILE* f;
+
+	printf("Author: 112-Maskin-Danil\n");
+	printf("This program outputs to a file and to the console all k-element subsets of the set of numbers from 1 to N.\n");
+	printf("Enter N: ");
+	scanf("%d", &N);
+	printf("Enter k: ");
+	scanf("%d", &k);
+	getchar();
+
+	printf("Enter file name: ");
+	fgets(filename, sizeof(filename), stdin);
+	filename[strcspn(filename, "\n")] = '\0';
+	f = fopen(filename, "w");
+	if (f) {
+		if (filename == NULL) {
+			perror("Error opening file");
+			return 1;
+		}
+
+		generateSubsets(N, k, f);
+		fclose(f);
+	}
+	else {
+		fprintf(stderr, "file \"%s\" is not found", filename);
+		return -1;
+	}
+
+	return 0;
+}
 
 // Author: 112-Maskin-Danil
 // This function takes N - number of elements in a set, k - number of elements in required subsets, and file to write output.
@@ -28,39 +67,4 @@ void generateSubsets(int N, int k, FILE* file) {
 			printf("\n");
 		}
 	}
-}
-
-// Author: 112-Maskin-Danil
-// This program outputs to a file and to the console all k-element subsets of the set of numbers from 1 to n.
-int main() {
-	int N, k;
-	char filename[100];
-
-	printf("Author: 112-Maskin-Danil\n");
-	printf("This program outputs to a file and to the console all k-element subsets of the set of numbers from 1 to n.\n");
-	printf("Enter N: ");
-	scanf_s("%d", &N);
-	printf("Enter k: ");
-	scanf_s("%d", &k);
-	getchar();
-
-	printf("Enter file name: ");
-	fgets(filename, sizeof(filename), stdin);
-	filename[strcspn(filename, "\n")] = '\0';
-	FILE* f = fopen(filename, "w");
-	if (f) {
-		if (filename == NULL) {
-			perror("Error opening file");
-			return 1;
-		}
-
-		generateSubsets(N, k, f);
-		fclose(f);
-	}
-	else {
-		fprintf(stderr, "file \"%s\" is not found", filename);
-		return -1;
-	}
-
-	return 0;
 }

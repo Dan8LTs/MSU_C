@@ -20,10 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions5.h" />
-    <ClInclude Include="ProgramSort.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ProgramSort.c" />
+    <ClCompile Include="NewProgramSort.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -109,7 +108,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
