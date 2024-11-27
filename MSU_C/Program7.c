@@ -5,7 +5,7 @@ void generateSubsets(int N, int k, FILE* file);
 
 // Author: 112-Maskin-Danil
 // This program outputs to a file and to the console all k-element subsets of the set of numbers from 1 to n.
-int main() {
+int main(void) {
 	int N, k;
 	char filename[100];
 	FILE* f;

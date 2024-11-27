@@ -67,7 +67,7 @@ int main(void) {
 
 // Author: 112-Maskin-Danil
 // This function was created for testing program.
-void tests() {
+void tests(void) {
 	clock_t s1, s2, e1, e2;
 	int n = 10000;
 	double* arr1 = generateDoubleArray(n);
@@ -134,10 +134,9 @@ int* generateIntArray(int n) {
 // This function returns an array of length n random doubles. 
 double* generateDoubleArray(int n) {
 	int i;
-	srand(time(NULL));
-
 	double* res = (double*)malloc(n * sizeof(double));
 
+	srand(time(NULL));
 	for (i = 0; i < n; i++) {
 		res[i] = (rand() * 1.0 / RAND_MAX) * 2.0 - 1.0;
 	}

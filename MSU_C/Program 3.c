@@ -1,46 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #define eps 0.00001
-#define N 1000
 
-double absvalue(double);
+double abs(double);
 void Process1(double*, int, double, int*);
 void Process2(double*, int, double*);
 
-// Author: 112-Maskin-Danil. 
+
 // This program solves tasks 5 and 23. You can choose mode. 
-// In both modes, the program reads data from a file and outputs the result. 
-int main(void) {
-	int mode = 0, i = 0, res1;
-	double el, res2, x, data[N];
+// In both modes, the program reads data from a file and outputs the result. Author: 112-Maskin-Danil. 
+int main() {
+	int mode = 0;
+	int i = 0;
+	int retcode = 0;
 	char filename[100];
-	FILE* f;
+	double data[1000];
 
 	printf("This program solves tasks 5 and 23. Author: 112-Maskin-Danil. \n");
-	printf("Select mode 5 or 23: ");
+	printf("Select mode 5 or 23: \n");
 
-	if (scanf("%d", &mode) != 1) {
+	if (scanf_s("%d", &mode) != 1) {
 		fprintf(stderr, "wrong format");
 		return -1;
 	}
-	getchar();
 
+	getchar();
 	printf("Enter file name: ");
 	fgets(filename, sizeof(filename), stdin);
 	filename[strcspn(filename, "\n")] = '\0';
-	f = fopen(filename, "r");
+	FILE* f = fopen(filename, "r");
 	if (f) {
-		for (i = 0; fscanf(f, "%lf", &el) == 1; ++i)
-		{
-			if (i < N) data[i] = el;
-		}
+		for (i = 0; fscanf_s(f, "%lf", &data[i]) == 1 && i < 1000; ++i) {}
 		if (i == 0) {
 			fprintf(stderr, "file is empty");
 			return -1;
-		}
-		else if (i >= N) {
-			printf("Warning: The file contains more than N elements. I will process only N elements.\n");
 		}
 		fclose(f);
 	}
@@ -50,44 +42,47 @@ int main(void) {
 	}
 
 	if (mode == 5) {
+		int res1 = 0;
+		double x;
 		printf("This program finds the number X in the sequence of numbers from %s\n", filename);
 		printf("Enter X: ");
-		if (scanf("%lf", &x) != 1) {
+		if (scanf_s("%lf", &x) != 1) {
 			fprintf(stderr, "wrong format");
 			return -1;
 		}
-
-		Process1(data, i < N ? i : N, x, &res1);
+		Process1(data, i, x, &res1);
 
 		printf("Result: ");
-		printf(res1 == 1 ? "X was found" : "X wasn't found");
+		printf(res1 > 0 ? "X was found" : "X wasn't found");
 	}
 	else if (mode == 23) {
+		double res2;
 		printf("This program finds the largest sum of an increasing portion of a sequence from %s\n", filename);
-
-		Process2(data, i < N ? i : N, &res2);
+		Process2(data, i, &res2);
 
 		printf("Result: %lf", res2);
 	}
 	else {
-		fprintf(stderr, "wrong mode"); return -1;
+		fprintf(stderr, "wrong mode");
+		return -1;
 	}
 	return 0;
 }
 
 // Author: 112-Maskin-Danil.
-// This function returns the absolute value of a number v.
-double absvalue(double v) {
+// This function returns the absolute value of a number.
+double abs(double v) {
 	return v > 0 ? v : -v;
 }
 
 // Author: 112-Maskin-Danil.
 // Solution of problem 5.
-// This function takes an array data, used array length - n, a number x, a variable res1 to write the result to.
+// This function takes a file, a number x, and a variable res to write the result to.
+// It returns retcode -1 if the file is empty, else 0.
 void Process1(double data[], int n, double x, int* res1) {
 	int i;
 	for (i = 0; i < n; ++i) {
-		if (absvalue(x - data[i]) < eps) {
+		if (abs(x - data[i]) < eps) {
 			*res1 = 1;
 			break;
 		}
@@ -96,10 +91,12 @@ void Process1(double data[], int n, double x, int* res1) {
 
 // Author: 112-Maskin-Danil.
 // Solution of problem 23.
-// This function takes an array data, used array length - n, a variable res2 to write the result to.
+// This function takes a file and a variable res to write the result to.
+// It returns retcode -1 if the file is empty, else 0.
 void Process2(double data[], int n, double* res2) {
-	double s = data[0], max_s = data[0];
+	double s = data[0], max_s;
 	int i;
+	max_s = 0;
 
 	for (i = 0; i < (n - 1); ++i)
 	{
