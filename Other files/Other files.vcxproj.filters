@@ -11,5 +11,9 @@
     <ClCompile Include="..\MSU_C\Program4(no array).c" />
     <ClCompile Include="..\MSU_C\ProgramSort.c" />
     <ClCompile Include="..\MSU_C\Program7.c" />
+    <ClCompile Include="..\MSU_C\NewProgramSort.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MSU_C\Functions5.h" />
   </ItemGroup>
 </Project>

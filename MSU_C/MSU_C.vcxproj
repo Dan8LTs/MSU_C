@@ -19,10 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Functions5.h" />
+    <ClInclude Include="Functions8.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NewProgramSort.c" />
+    <ClCompile Include="Functions8.c" />
+    <ClCompile Include="Program8.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

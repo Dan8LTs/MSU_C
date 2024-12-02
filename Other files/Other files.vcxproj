@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\MSU_C\Lection1.c" />
+    <ClCompile Include="..\MSU_C\NewProgramSort.c" />
     <ClCompile Include="..\MSU_C\Program4(no array).c" />
     <ClCompile Include="..\MSU_C\Program4.c" />
     <ClCompile Include="..\MSU_C\Program5.c" />
@@ -29,6 +30,9 @@
     <ClCompile Include="..\MSU_C\ProgramSort.c" />
     <ClCompile Include="..\MSU_C\Seminar1.c" />
     <ClCompile Include="..\MSU_C\Test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\MSU_C\Functions5.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
