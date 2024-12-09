@@ -8,7 +8,10 @@
 // It also finds the location of a given point relative to a polygon
 int main(void) {
 	char filename[100];
-	FILE* f;
+	FILE *f, *f2;
+	const char* location;
+	double x, y;
+	int pc = 0;
 
 	printf("Author: 112-Maskin-Danil\n");
 	printf("This program reads the coordinates of a polygon from a file and outputs whether it is convex.\n");
@@ -18,13 +21,14 @@ int main(void) {
 	filename[strcspn(filename, "\n")] = '\0';
 
 	f = fopen(filename, "r");
+	
 	if (f) {
 		Point* head = NULL;
 		Point* tail = NULL;
 
-		int x, y;
-		while (fscanf(f, "%d %d", &x, &y) == 2) {
+		while (fscanf(f, "%lf %lf", &x, &y) == 2) {
 			Point* newPoint = createPoint(x, y);
+			pc++;
 			if (head == NULL) {
 				head = newPoint;
 				tail = newPoint;
@@ -36,6 +40,10 @@ int main(void) {
 			}
 		}
 
+		if (pc < 3) {
+			fprintf(stderr, "file contains < 3 points", filename);
+			return -1;
+		}
 		if (isConvex(head)) {
 			printf("Convex\n");
 		}
@@ -43,11 +51,22 @@ int main(void) {
 			printf("Not convex\n");
 		}
 
-		int px, py;
-		printf("Enter point coordinates (x y): ");
-		scanf("%d %d", &px, &py);
-		const char* location = pointLocation(head, px, py);
-		printf("The point is: %s\n", location);
+		f2 = fopen("points.txt", "r");
+		if (f2) {
+			while (fscanf(f2, "%lf %lf", &x, &y) == 2) {
+				printf("The point (%lf, %lf) is: %s\n", x, y, pointLocation(head, x, y));
+			}
+		}
+		else {
+			fprintf(stderr, "file points.txt is not found", filename);
+			return -1;
+		}
+		
+		
+		/*printf("Enter point coordinates (x y): ");
+		scanf("%lf %lf", &x, &y);
+		location = pointLocation(head, x, y);
+		printf("The point is: %s\n", location);*/
 
 		freeList(head);
 		fclose(f);

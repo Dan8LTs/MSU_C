@@ -2,14 +2,15 @@
 #include <stdio.h>
 
 typedef struct Point {
-	int x;
-	int y;
+	double x;
+	double y;
 	struct Point* next;
 } Point;
 
-Point* createPoint(int x, int y);
-void insert_after(Point* current, int x, int y);
+Point* createPoint(double x, double y);
+void insert_after(Point* current, double x, double y);
 Point* move_to_next(Point* current);
 int isConvex(Point* head);
 void freeList(Point* head);
-const char* pointLocation(Point* head, int px, int py);
+const char* pointLocation(Point* head, double px, double py);
+double absvalue(double v);
