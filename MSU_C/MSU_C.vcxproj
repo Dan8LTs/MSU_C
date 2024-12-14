@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Functions8.c" />
-    <ClCompile Include="Program9.c" />
+    <ClCompile Include="Program8.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions8.h" />

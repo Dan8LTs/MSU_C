@@ -5,28 +5,34 @@
 
 // Author: 112-Maskin-Danil 
 // This program reads the coordinates of a polygon from a file and outputs whether it is convex
-// It also finds the location of a given point relative to a polygon
+// It also finds the location of points relative to a polygon
 int main(void) {
-	char filename[100];
-	FILE *f, *f2;
+	char filename1[100], filename2[100];
+	FILE* f1, * f2;
 	const char* location;
 	double x, y;
 	int pc = 0;
 
 	printf("Author: 112-Maskin-Danil\n");
 	printf("This program reads the coordinates of a polygon from a file and outputs whether it is convex.\n");
-	printf("It also finds the location of a given point relative to a polygon.\n");
-	printf("Enter file name: ");
-	fgets(filename, sizeof(filename), stdin);
-	filename[strcspn(filename, "\n")] = '\0';
+	printf("It also finds the location of points relative to a polygon\n");
 
-	f = fopen(filename, "r");
-	
-	if (f) {
+	printf("Enter file with polygon name: ");
+	fgets(filename1, sizeof(filename1), stdin);
+	filename1[strcspn(filename1, "\n")] = '\0';
+
+	printf("Enter file with points name: ");
+	fgets(filename2, sizeof(filename2), stdin);
+	filename2[strcspn(filename2, "\n")] = '\0';
+
+	f1 = fopen(filename1, "r");
+	f2 = fopen(filename2, "r");
+
+	if (f1 && f2) {
 		Point* head = NULL;
 		Point* tail = NULL;
 
-		while (fscanf(f, "%lf %lf", &x, &y) == 2) {
+		while (fscanf(f1, "%lf %lf", &x, &y) == 2) {
 			Point* newPoint = createPoint(x, y);
 			pc++;
 			if (head == NULL) {
@@ -41,7 +47,7 @@ int main(void) {
 		}
 
 		if (pc < 3) {
-			fprintf(stderr, "file contains < 3 points", filename);
+			fprintf(stderr, "polygon contains < 3 points");
 			return -1;
 		}
 		if (isConvex(head)) {
@@ -51,28 +57,17 @@ int main(void) {
 			printf("Not convex\n");
 		}
 
-		f2 = fopen("points.txt", "r");
-		if (f2) {
-			while (fscanf(f2, "%lf %lf", &x, &y) == 2) {
-				printf("The point (%lf, %lf) is: %s\n", x, y, pointLocation(head, x, y));
-			}
+		while (fscanf(f2, "%lf %lf", &x, &y) == 2)
+		{
+			printf("The point (%lf, %lf) is: %s\n", x, y, pointLocation(head, x, y));
 		}
-		else {
-			fprintf(stderr, "file points.txt is not found", filename);
-			return -1;
-		}
-		
-		
-		/*printf("Enter point coordinates (x y): ");
-		scanf("%lf %lf", &x, &y);
-		location = pointLocation(head, x, y);
-		printf("The point is: %s\n", location);*/
 
 		freeList(head);
-		fclose(f);
+		fclose(f1);
+		fclose(f2);
 	}
 	else {
-		fprintf(stderr, "file \"%s\" is not found", filename);
+		fprintf(stderr, "files were not found");
 		return -1;
 	}
 	return 0;
