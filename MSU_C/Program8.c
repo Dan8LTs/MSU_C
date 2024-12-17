@@ -9,7 +9,6 @@
 int main(void) {
 	char filename1[100], filename2[100];
 	FILE* f1, * f2;
-	const char* location;
 	double x, y;
 	int pc = 0;
 

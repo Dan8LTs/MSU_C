@@ -38,14 +38,14 @@ Point* move_to_next(Point* current) {
 // This function checks if the polygon formed by the points is convex; 
 // Takes the head of the linked list of points and returns 1 if convex, 0 otherwise. 
 int isConvex(Point* head) {
-	Point *p1, *p2, *p3;
+	Point* p1, * p2, * p3;
 	int sign;
 
 	sign = 0;
 	p1 = head;
 	p2 = move_to_next(p1);
 	p3 = move_to_next(p2);
-	
+
 	while (p3 != head) {
 		int crossProduct = (p2->x - p1->x) * (p3->y - p2->y) - (p2->y - p1->y) * (p3->x - p2->x);
 
@@ -95,7 +95,7 @@ const char* pointLocation(Point* head, double px, double py) {
 	int count = 0;
 	Point* current = head;
 
-	if (current->x == px && current->y == py) {
+	if (absvalue(current->x - px) < eps && absvalue(current->y - py) < eps) {
 		return "at the vertex";
 	}
 	do {
