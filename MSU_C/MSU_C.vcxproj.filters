@@ -14,17 +14,4 @@
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Functions8.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Program8.c">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Functions8.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

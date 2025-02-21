@@ -2,9 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\MSU_C\ProgramMinmax.c" />
-    <ClCompile Include="..\MSU_C\Test.c" />
     <ClCompile Include="..\MSU_C\Lection1.c" />
-    <ClCompile Include="..\MSU_C\Program4.c" />
     <ClCompile Include="..\MSU_C\Program5.c" />
     <ClCompile Include="..\MSU_C\Program6.c" />
     <ClCompile Include="..\MSU_C\Seminar1.c" />
@@ -13,8 +11,16 @@
     <ClCompile Include="..\MSU_C\Program7.c" />
     <ClCompile Include="..\MSU_C\NewProgramSort.c" />
     <ClCompile Include="..\MSU_C\Program9.c" />
+    <ClCompile Include="..\MSU_C\Functions8.c" />
+    <ClCompile Include="..\MSU_C\Program8.c" />
+    <ClCompile Include="..\MSU_C\Program4.c" />
+    <ClCompile Include="..\MSU_C\Program10.c" />
+    <ClCompile Include="..\MSU_C\Program11.c" />
+    <ClCompile Include="..\MSU_C\Program12.c" />
+    <ClCompile Include="..\MSU_C\Program13.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\MSU_C\Functions5.h" />
+    <ClInclude Include="..\MSU_C\Functions8.h" />
   </ItemGroup>
 </Project>
