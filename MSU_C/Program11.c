@@ -8,7 +8,7 @@ double abs_value(double x);
 
 // Author: 112-Maskin-Danil  
 // This program calculates the integral of a given function on a given segment with a given accuracy EPS.
-int main() {
+int main(void) {
 	double a = 0.0, b = 1.0;
 	double result = integral(func, a, b);
 

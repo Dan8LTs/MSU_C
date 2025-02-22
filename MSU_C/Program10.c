@@ -10,7 +10,7 @@ double example_function(double x);
 
 // Author: 112-Maskin-Danil  
 // This program calculates the root of the equation f(x) = 0 on a given segment with a given accuracy EPS.
-int main() {
+int main(void) {
 	double a1 = 0.0, b1 = 2.0;
 	int err1, iterations1;
 	double root1 = koren(example_function, a1, b1, &err1, &iterations1);
@@ -56,12 +56,13 @@ double abs_value(double x) {
 // This function finds a root of the function f in the interval [a, b] using the secant method.
 // It returns the root as a double and sets err to indicate success or failure.
 double koren(double (*f)(double), double a, double b, int* err, int* iterations) {
-	if (f(a) * f(b) > 0) {
+    double c;
+    
+    if (f(a) * f(b) > 0) {
 		*err = 1;
 		return 0.0;
 	}
-
-	double c;
+	
 	*err = 0;
 	*iterations = 0;
 
